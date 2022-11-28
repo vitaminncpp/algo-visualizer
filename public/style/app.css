@@ -1,0 +1,20 @@
+:root{
+    --app-background: #25c0ca;
+    --bar-color: #5e31d3;
+}
+body{
+    margin: 0px;
+    padding: 0px;
+}
+#app {
+    width: 100%;
+    display:flex;
+    flex-direction: column;
+    margin: 0px;
+    padding: 0px;
+    background: var(--app-background);
+}
+
+button{
+    font-size: 1.2em;
+}

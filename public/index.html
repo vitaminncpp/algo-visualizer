@@ -1,27 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <link rel="icon" href="/favicon.ico" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="description" content="Web site created using create-snowpack-app" />
-    <link rel="stylesheet" type="text/css" href="/index.css" />
+<head>
+    <meta charset="utf-8"/>
+    <link rel="icon" href="/favicon.ico"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <meta name="description" content="Web site created using create-snowpack-app"/>
+    <link rel="stylesheet" type="text/css" href="/index.css"/>
+    <link rel="stylesheet" type="text/css" href="/style/header.css"/>
+    <link rel="stylesheet" type="text/css" href="/style/canvas.css"/>
+    <link rel="stylesheet" type="text/css" href="/style/app.css"/>
     <title>Snowpack App</title>
-  </head>
-  <body>
-    <img id="img" src="/logo.svg" />
-    <canvas id="canvas"></canvas>
-    <noscript>You need to enable JavaScript to run this app.</noscript>
+</head>
+<body>
+<div id="app">
     <script type="module" src="/dist/index.js"></script>
-    <!--
-      This HTML file is a template.
-      If you open it directly in the browser, you will see an empty page.
+    <div class="header">
+        <div class="controls">
+            <button id="start">Start</button>
+            <button id="stop">Stop</button>
+            <button id="step">Step</button>
+            <button id="back">Back</button>
+            <button id="reset">Reset</button>
+        </div>
+        <div class="algo-list">
+            <button id="sorting">Sorting</button>
+            <button id="graph">Graph</button>
+        </div>
 
-      You can add webfonts, meta tags, or analytics to this file.
-      The build step will place the bundled scripts into the <body> tag.
-
-      To begin the development, run `npm start` or `yarn start`.
-      To create a production bundle, use `npm run build` or `yarn build`.
-    -->
-  </body>
+    </div>
+    <div class="content">
+        <div id="canvas">
+            <div class="array">
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
 </html>
