@@ -9,6 +9,7 @@
         "moduleResolution": "node",
         "jsx": "preserve",
         "baseUrl": "./",
+        "noUnusedLocals": false,
         /* paths - import rewriting/resolving */
         "paths": {
             // If you configured any Snowpack aliases, add them here.
@@ -16,6 +17,7 @@
             //     "*": [".snowpack/types/*"]
             // More info: https://www.snowpack.dev/guides/streaming-imports
         },
+        "noUnusedParameters": false,
         "allowUnusedLabels": true,
         "allowSyntheticDefaultImports": true,
         "importsNotUsedAsValues": "remove",

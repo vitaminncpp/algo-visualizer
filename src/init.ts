@@ -1,5 +1,6 @@
-import {createBars} from "./dsa/sorting";
+import {renderBars} from "./dsa/sorting";
 
-export const init: () => void = () => {
-    createBars(50);
+
+export const init: () => void = async () => {
+    renderBars(50);
 }
