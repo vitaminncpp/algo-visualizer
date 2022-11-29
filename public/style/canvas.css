@@ -4,13 +4,16 @@
     flex-direction: row;
     margin: 10px;
     width: 100%;
+    height: 90vh;
 }
 .array{
     margin: 10px;
     display: flex;
     width: 100%;
+    height: 80vh;
     flex-direction: row;
     justify-content: center;
+    align-items: end;
 }
 
 .bar{
