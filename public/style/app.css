@@ -1,20 +1,24 @@
 :root {
-    --app-background: linear-gradient(37deg, rgba(68, 79, 217, 0.85), rgba(133, 66, 173, 0.89));;
+    --app-background: linear-gradient(37deg, rgba(109, 156, 213, 0.85), rgba(152, 80, 197, 0.89));;
     --bar-color: #5e31d3;
 }
 
-body {
-    margin: 0px;
-    padding: 0px;
+* {
+    margin: 0;
+    padding: 0;
 }
-
+body{
+    width: 100%;
+}
 #app {
     width: 100%;
     display: flex;
     flex-direction: column;
-    margin: 0;
-    padding: 0;
     background: var(--app-background);
+}
+
+.content {
+    width: 100%;
 }
 
 button {

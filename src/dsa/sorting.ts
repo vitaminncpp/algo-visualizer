@@ -1,57 +1,6 @@
 import $ from 'jquery';
 import {sleep} from "../util/util";
-
-enum SortAlgo {
-    MergeSort,
-    QuickSort,
-    BubbleSort,
-    HeapSort,
-    SelectionSort,
-    InsertionSort,
-    BogoSort
-};
-
-type State = {
-    sortAlgo: SortAlgo,
-    mergSort: {},
-    quickSort: {},
-
-}
-
-type SortType =
-    {
-        array: Array<number>,
-        randomize: () => void,
-    };
-
-export const Sort: SortType =
-    {
-        array: [],
-        randomize: () => {
-
-        }
-    };
-
-export const start: () => void = () => {
-
-};
-
-export const stop: () => void = () => {
-
-};
-
-export const play: () => void = () => {
-
-};
-
-
-export const renderBars: (barCount: number) => void = (barCount: number) => {
-    let htmlString: string = '';
-    for (let i: number = 0; i < barCount; i++) {
-        htmlString += `<div  id="bar-${i}" class="bar"></div>`;
-    }
-    $('#canvas .array').html(htmlString);
-};
+import {getBarElements, renderBars} from "../updateUI";
 
 export class Sorting {
     size: number;
@@ -79,6 +28,13 @@ export class Sorting {
         this.partition = this.partition.bind(this);
         this.selectionSort = this.selectionSort.bind(this);
         this.isSorted = this.isSorted.bind(this);
+
+        this.resize = this.resize.bind(this);
+        this.render = this.render.bind(this);
+
+        this.generateArray();
+        this.render();
+        this.fetchElements();
     }
 
     generateArray() {
@@ -89,11 +45,7 @@ export class Sorting {
     }
 
     fetchElements() {
-        for (let i = 0; i < this.size; i++) {
-            this.elements.push($(`#bar-${i}`));
-            this.elements[i].css({height: `${this.array[i]}px`});
-            this.elements[i].css({width: `${80 / this.size}%`});
-        }
+        this.elements = getBarElements(this.size);
     }
 
     shuffle() {
@@ -175,4 +127,17 @@ export class Sorting {
         }
         return true;
     }
+
+    resize(size: number) {
+        this.size = size;
+        this.generateArray();
+        this.render();
+        this.fetchElements();
+
+    }
+
+    render() {
+        renderBars(this.size);
+    }
+
 }

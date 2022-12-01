@@ -1,5 +1,5 @@
 :root {
-    --button-background: #62ded0;
+    --button-background: #212121;
     --button-background-hover: #ffffff;
 }
 
@@ -21,13 +21,21 @@
     width: 80px;
     border: 0px;
     cursor: pointer;
+    color: #dedede;
     background: var(--button-background);
 }
 
 .header button:hover {
     background: var(--button-background-hover);
+    color: black;
 }
 
 .algo-list {
 
+}
+
+.algo-controls input {
+    width: 150px;
+    height: 30px;
+    padding-left: 10px;
 }
