@@ -70,8 +70,8 @@ export class Sorting {
 
 
                     //change colors of bars
-                    this.elements[j].css({background: `#00ff00`});
-                    this.elements[j + 1].css({background: `#00ff00`});
+                    this.elements[j].css({background: `#ff0000`});
+                    this.elements[j + 1].css({background: `#ff0000`});
 
                     await sleep(50);
                     //revert back colors
@@ -81,7 +81,7 @@ export class Sorting {
             }
             //change color for sorted part of an array
             for (let k = this.size - 1; k >= this.size - i - 1; k--) {
-                this.elements[k].css({background: `#ff0000`});
+                this.elements[k].css({background: `#00ff00`});
             }
         }
         this.isRunning = false;
@@ -137,7 +137,7 @@ export class Sorting {
     }
 
     render() {
-        renderBars(this.size);
+        renderBars(this.array);
     }
 
 }

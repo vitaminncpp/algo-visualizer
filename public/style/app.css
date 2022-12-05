@@ -1,15 +1,17 @@
 :root {
     --app-background: linear-gradient(37deg, rgba(109, 156, 213, 0.85), rgba(152, 80, 197, 0.89));;
-    --bar-color: #5e31d3;
+    --bar-color: #00ffff;
 }
 
 * {
     margin: 0;
     padding: 0;
 }
-body{
+
+body {
     width: 100%;
 }
+
 #app {
     width: 100%;
     display: flex;

@@ -105,7 +105,13 @@ export const updateSortControls: () => void = () => {
     $('#generate-bars').on('click', (event: ClickEvent) => {
         algo.generateBars($('#bar-count').val());
     });
-
+    $('#generate-bars').on('click', (event: ClickEvent) => {
+        let barCount = $('#bar-count').val();
+        // @ts-ignore
+        let num = parseInt(barCount.toString());
+        algo.sort.resize(num);
+        console.log("Yess Encountered")
+    })
 }
 
 //graph controls
@@ -117,14 +123,21 @@ export const updateGraphControls: () => void = () => {
     $('#dfs').on('click', (event: ClickEvent) => {
         algo.setSubAlgo(GraphAlgo.DFS);
     });
+    $('#generate-graph').on('click', (event: ClickEvent) => {
+        //TODO Generate Graph
+    });
 }
 
-export const renderBars: (size: number) => void = (size: number) => {
+export const renderBars: (array: Array<number>) => void = (array: Array<number>) => {
     let htmlString = ``;
+    let size: number = array.length;
     for (let i = 0; i < size; i++) {
         htmlString += `<div id="bar-${i}" class="bar"></div>`;
     }
     $('#canvas .array').html(htmlString);
+    array.forEach((x, i) => {
+        $(`#bar-${i}`).css('height', `${x}px`);
+    })
 }
 
 export const getBarElements: (size: number) => Array<JQuery> = (size: number) => {
@@ -138,6 +151,5 @@ export const getBarElements: (size: number) => Array<JQuery> = (size: number) =>
 
 export const applyCSS: () => void = () => {
     $('.header button').addClass('button-inactive');
-    $('.sorting-controls').css('display', 'none');
     $('.graph-controls').css('display', 'none');
 }

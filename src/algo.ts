@@ -136,6 +136,7 @@ export class Algorithm {
     reset() {
         switch (this.state.algo) {
             case AlgoType.SORTING:
+                this.sort.resize(this.sort.size);
                 switch (this.state.subAlgo) {
                     case SortAlgo.NONE:
                         break;

@@ -33,9 +33,16 @@
 }
 
 .algo-controls input {
-    width: 150px;
     height: 30px;
     padding-left: 10px;
+}
+
+.graph-controls input {
+    width: 150px;
+}
+
+.graph-controls input {
+    width: 50px;
 }
 
 .button-active {
