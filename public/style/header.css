@@ -18,11 +18,9 @@
 
 .header button {
     height: 30px;
-    width: 80px;
+    width: 100px;
     border: 0px;
     cursor: pointer;
-    color: #dedede;
-    background: var(--button-background);
 }
 
 .header button:hover {
@@ -38,4 +36,14 @@
     width: 150px;
     height: 30px;
     padding-left: 10px;
+}
+
+.button-active {
+    background: var(--button-background-hover);
+    color: var(--button-background);
+}
+
+.button-inactive {
+    background: var(--button-background);
+    color: var(--button-background-hover);
 }
