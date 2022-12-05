@@ -1,4 +1,5 @@
 import {Sorting} from "./dsa/sorting";
+import {getJSON} from "jquery";
 
 
 export enum AlgoType {
@@ -27,6 +28,7 @@ export enum GraphAlgo {
 export type State = {
     algo: AlgoType,
     subAlgo: GraphAlgo | SortAlgo,
+    pause: boolean
 }
 
 export class Algorithm {
@@ -35,6 +37,7 @@ export class Algorithm {
 
     constructor() {
         this.state = {
+            pause: false,
             algo: AlgoType.SORTING,
             subAlgo: SortAlgo.BUBBLE,
         };
@@ -44,6 +47,7 @@ export class Algorithm {
         this.setAlgo = this.setAlgo.bind(this);
         this.setSubAlgo = this.setSubAlgo.bind(this);
         this.generateBars = this.generateBars.bind(this);
+        this.pause = this.pause.bind(this);
     }
 
     setAlgo(algo: AlgoType) {
@@ -64,8 +68,10 @@ export class Algorithm {
                         await this.sort.bubbleSort();
                         break;
                     case SortAlgo.QUICK:
+                        await this.sort.quickSort();
                         break;
                     case SortAlgo.MERGE:
+                        await this.sort.mergeSort();
                         break;
                     case SortAlgo.INSERTION:
                         break;
@@ -136,7 +142,7 @@ export class Algorithm {
     reset() {
         switch (this.state.algo) {
             case AlgoType.SORTING:
-                this.sort.resize(this.sort.size);
+                this.sort.shuffle();
                 switch (this.state.subAlgo) {
                     case SortAlgo.NONE:
                         break;
@@ -255,5 +261,32 @@ export class Algorithm {
         if (typeof size === "number") {
             this.sort.resize(size);
         }
+    }
+
+    pause() {
+        if (this.state.pause) {
+            this.state.pause = false;
+            switch (this.state.algo) {
+                case AlgoType.GRAPH:
+                    break;
+                case AlgoType.SORTING:
+                    this.sort.delay = 50;
+                    break;
+                default:
+                    break;
+            }
+        } else {
+            this.state.pause = true;
+            switch (this.state.algo) {
+                case AlgoType.GRAPH:
+                    break;
+                case AlgoType.SORTING:
+                    this.sort.delay = 999999999;
+                    break;
+                default:
+                    break;
+            }
+        }
+
     }
 }

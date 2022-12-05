@@ -22,6 +22,10 @@ export const updateCommonControls: () => void = () => {
     $('#stop').on('click', (event: ClickEvent) => {
         algo.stop();
     });
+    $('#pause').on('click', (event: ClickEvent) => {
+        algo.pause();
+        $('#pause').text((algo.state.pause ? 'Play' : 'Pause'));
+    });
     $('#step').on('click', (event: ClickEvent) => {
         algo.step();
     });
@@ -152,4 +156,5 @@ export const getBarElements: (size: number) => Array<JQuery> = (size: number) =>
 export const applyCSS: () => void = () => {
     $('.header button').addClass('button-inactive');
     $('.graph-controls').css('display', 'none');
+    $('.sorting-controls').css('display', 'none');
 }
