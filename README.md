@@ -24,17 +24,4 @@ your `snowpack.config.mjs` config file.
 
 ### Q: What about Eject?
 
-No eject needed! Snowpack guarantees zero lock-in, and CSA strives for the same.
-
-### Asymptotic notation for Operating System
-<br />
-
-|     | --           | Development | Gaming  | Art and Business |  	
-|:----|--------------|-------------|---------|------------------|
-|     | Best case    | Linux       | Windows | MacOS            |  	
-|     | Worst case   | Windows     | MacOS   | Linux            |  	
-|     | Average case | Windows     | Windows | Windows          |
-
-<br />
-
-
+No eject needed! Snowpack guarantees zero lock-in, and CSA strives for the same
