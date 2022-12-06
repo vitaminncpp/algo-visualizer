@@ -154,7 +154,7 @@ export const updateGraphControls: () => void = () => {
         let cols = parseInt($('#graph-column').val().toString());
 
         if (typeof rows == "number" && typeof cols == "number") {
-            renderGraph(rows, cols);
+            renderGraph(cols, rows);
         }
     });
 }
