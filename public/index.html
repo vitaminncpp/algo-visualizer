@@ -8,6 +8,8 @@
     <link rel="stylesheet" type="text/css" href="/style/header.css"/>
     <link rel="stylesheet" type="text/css" href="/style/canvas.css"/>
     <link rel="stylesheet" type="text/css" href="/style/app.css"/>
+    <link rel="stylesheet" type="text/css" href="/style/sorting.css"/>
+    <link rel="stylesheet" type="text/css" href="/style/graph.css"/>
     <title>Snowpack App</title>
 </head>
 <body>
@@ -17,9 +19,9 @@
         <div class="controls">
             <button id="start">Start</button>
             <button id="stop">Stop</button>
-            <button id="pause">Pause</button>
-            <button id="step">Step</button>
-            <button id="back">Back</button>
+            <!--            <button id="pause">Pause</button>-->
+            <!--            <button id="step">Step</button>-->
+            <!--            <button id="back">Back</button>-->
             <button id="reset">Reset</button>
         </div>
         <div class="algo-controls">
@@ -30,6 +32,9 @@
                 <button id="bubble-sort">Bubble</button>
                 <button id="quick-sort">Quick</button>
                 <button id="merge-sort">Merge</button>
+                <button id="insertion-sort">Insertion</button>
+                <button id="stalin-sort">Stalin</button>
+                <button id="oddeven-sort">Odd Even</button>
             </div>
             <div class="graph-controls">
                 <input type="number" id="graph-row">
@@ -40,15 +45,15 @@
             </div>
         </div>
         <div class="algo-list">
-            <button id="sorting">Sorting</button>
-            <button id="graph">Graph</button>
+            <button id="sorting-button">Sorting</button>
+            <button id="graph-button">Graph</button>
         </div>
 
     </div>
     <div class="content">
         <div id="canvas">
-            <div class="array">
-            </div>
+            <div id="array"></div>
+            <div id="graph"></div>
         </div>
     </div>
 </div>

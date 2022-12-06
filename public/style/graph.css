@@ -1,0 +1,13 @@
+
+#graph {
+    width: 100%;
+    height: auto;
+    justify-content: center;
+    align-items: center;
+}
+
+.node {
+    width: 25px;
+    height: 25px;
+    background: #00ffff;
+}

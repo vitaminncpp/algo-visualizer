@@ -30,6 +30,8 @@ export class Sorting {
         this.partition = this.partition.bind(this);
         this.selectionSort = this.selectionSort.bind(this);
         this.isSorted = this.isSorted.bind(this);
+        this.stalinSort = this.stalinSort.bind(this);
+        this.oddEvenSort = this.oddEvenSort.bind(this);
 
         this.resize = this.resize.bind(this);
         this.render = this.render.bind(this);
@@ -132,7 +134,7 @@ export class Sorting {
             this.elements[k].css('height', `${this.array[k]}px`);
             this.elements[k].css('background', '#00ff00');
 
-            await sleep(10);
+            await sleep(this.delay);
             this.elements[k].css('background', '#00ffff');
             k++;
         }
@@ -140,7 +142,7 @@ export class Sorting {
         while (i < leftArr.length) {
             this.array[k] = leftArr[i];
             this.elements[k].css('height', `${this.array[k]}px`);
-            this.elements[k].css('background', '#00ff00');
+            this.elements[k].css('background', '#ff0000');
 
             await sleep(100);
             this.elements[k].css('background', '#00ffff');
@@ -151,9 +153,9 @@ export class Sorting {
         while (j < rightArr.length) {
             this.array[k] = rightArr[j];
             this.elements[k].css('height', `${this.array[k]}px`);
-            this.elements[k].css('background', '#00ff00');
+            this.elements[k].css('background', '#ff0000');
 
-            await sleep(100);
+            await sleep(this.delay);
             this.elements[k].css('background', '#00ffff');
             j++;
             k++;
@@ -186,9 +188,9 @@ export class Sorting {
                 [this.array[i], this.array[pivotIndex]] = [this.array[pivotIndex], this.array[i]];
                 this.elements[i].css('height', `${this.array[i]}px`);
                 this.elements[pivotIndex].css('height', `${this.array[pivotIndex]}px`);
-                this.elements[i].css('background', '#00ff00');
-                this.elements[pivotIndex].css('background', '#00ff00');
-                await sleep(25);
+                this.elements[i].css('background', '#0b4be6');
+                this.elements[pivotIndex].css('background', '#0b4be6');
+                await sleep(this.delay);
                 this.elements[i].css('background', '#00ffff');
                 this.elements[pivotIndex].css('background', '#00ffff');
                 pivotIndex++;
@@ -199,21 +201,142 @@ export class Sorting {
 
         this.elements[end].css('height', `${this.array[end]}px`);
         this.elements[pivotIndex].css('height', `${this.array[pivotIndex]}px`);
-        this.elements[end].css('background', '#00ff00');
-        this.elements[pivotIndex].css('background', '#00ff00');
+        this.elements[end].css('background', '#0b4be6');
+        this.elements[pivotIndex].css('background', '#0b4be6');
         this.elements[end].css('background', '#00ffff');
         this.elements[pivotIndex].css('background', '#00ffff');
         this.elements[end].css('background', '#00ffff');
         return pivotIndex;
     }
 
-    insertionSort() {
+    async insertionSort() {
+        if (this.isRunning) {
+            return;
+        }
+        this.isRunning = true;
+        for (let i = 1; i < this.size; i++) {
 
+            let j = i;
+            if (i + 1 < this.elements.length) {
+                this.elements[i + 1].css('background', '#ff0000');
+            }
+            while (j > 0 && this.array[j] < this.array[j - 1]) {
+                [this.array[j], this.array[j - 1]] = [this.array[j - 1], this.array[j]];
+                this.elements[j].css('height', `${this.array[j]}px`);
+                this.elements[j - 1].css('height', `${this.array[j - 1]}px`);
+
+                this.elements[j - 1].css('background', '#00ff00');
+                await sleep(this.delay);
+
+                this.elements[j - 1].css('background', '#00ffff');
+                j--;
+            }
+
+
+            if (i + 1 < this.elements.length) {
+                this.elements[i + 1].css('background', '#00ffff');
+            }
+        }
+        this.isRunning = false;
     }
 
-    selectionSort() {
+    //selection sort with await function
+    async selectionSort() {
+        if (this.isRunning) {
+            return;
+        }
+        this.isRunning = true;
+        for (let i = 0; i < this.size - 1; i++) {
+            let min = i;
+            for (let j = i + 1; j < this.size; j++) {
+                this.elements[i].css('background', 'rgba(255,0,0,0.95)');
+                this.elements[j].css('background', '#ff0000');
+                await sleep(this.delay);
+                this.elements[i].css('background', '#00ffff');
+                this.elements[j].css('background', '#00ffff');
+                if (this.array[j] < this.array[min]) {
+                    this.elements[min].css('background', '#00ffff');
+                    min = j;
+                    this.elements[min].css('background', '#0000ff');
+                }
+            }
 
+            if (min != i) {
+                [this.array[i], this.array[min]] = [this.array[min], this.array[i]];
+                this.elements[i].css('height', `${this.array[i]}px`);
+                this.elements[min].css('height', `${this.array[min]}px`);
+                this.elements[i].css('background', '#ff0000');
+                this.elements[min].css('background', '#ff0000');
+                await sleep(this.delay);
+                this.elements[i].css('background', '#00ffff');
+                this.elements[min].css('background', '#00ffff');
+            }
+        }
+        this.isRunning = false;
     }
+
+    //stalin sort with await function
+    async stalinSort() {
+        if (this.isRunning) {
+            return;
+        }
+        this.isRunning = true;
+
+        for (let i = 0; i < this.size - 1;) {
+            if (this.array[i] > this.array[i + 1]) {
+                this.elements[i + 1].css('background', '#ff0000');
+                await sleep(this.delay);
+                this.elements[i + 1].remove();
+                this.elements.splice(i + 1, 1);
+                this.array.splice(i + 1, 1);
+            } else {
+                i++;
+            }
+        }
+
+        this.isRunning = false;
+    }
+
+    // odd-even sort
+    async oddEvenSort() {
+        if (this.isRunning) {
+            return;
+        }
+        this.isRunning = true;
+        let sorted = false;
+        while (!sorted) {
+            sorted = true;
+            for (let i = 1; i < this.size - 1; i += 2) {
+                if (this.array[i] > this.array[i + 1]) {
+                    [this.array[i], this.array[i + 1]] = [this.array[i + 1], this.array[i]];
+                    this.elements[i].css('height', `${this.array[i]}px`);
+                    this.elements[i + 1].css('height', `${this.array[i + 1]}px`);
+                    this.elements[i].css('background', '#ff0000');
+                    this.elements[i + 1].css('background', '#ff0000');
+                    sorted = false;
+                }
+                await sleep(this.delay);
+                this.elements[i].css('background', '#00ffff');
+                this.elements[i + 1].css('background', '#00ffff');
+            }
+
+            for (let i = 0; i < this.size - 1; i += 2) {
+                if (this.array[i] > this.array[i + 1]) {
+                    [this.array[i], this.array[i + 1]] = [this.array[i + 1], this.array[i]];
+                    this.elements[i].css('height', `${this.array[i]}px`);
+                    this.elements[i + 1].css('height', `${this.array[i + 1]}px`);
+                    this.elements[i].css('background', '#ff0000');
+                    this.elements[i + 1].css('background', '#ff0000');
+                    sorted = false;
+                }
+                await sleep(this.delay);
+                this.elements[i].css('background', '#00ffff');
+                this.elements[i + 1].css('background', '#00ffff');
+            }
+        }
+        this.isRunning = false;
+    }
+
 
     isSorted() {
         for (let i = 0; i < this.array.length; i++) {

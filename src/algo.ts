@@ -16,6 +16,8 @@ export enum SortAlgo {
     MERGE,
     INSERTION,
     BOGO,
+    STALIN,
+    ODDEVEN
 }
 
 export enum GraphAlgo {
@@ -46,7 +48,6 @@ export class Algorithm {
         //This bindings
         this.setAlgo = this.setAlgo.bind(this);
         this.setSubAlgo = this.setSubAlgo.bind(this);
-        this.generateBars = this.generateBars.bind(this);
         this.pause = this.pause.bind(this);
     }
 
@@ -74,8 +75,15 @@ export class Algorithm {
                         await this.sort.mergeSort();
                         break;
                     case SortAlgo.INSERTION:
+                        await this.sort.insertionSort();
                         break;
                     case SortAlgo.SELECTION:
+                        break;
+                    case SortAlgo.STALIN:
+                        await this.sort.stalinSort();
+                        break;
+                    case SortAlgo.ODDEVEN:
+                        await this.sort.oddEvenSort();
                         break;
                     default:
                         break;
@@ -254,12 +262,6 @@ export class Algorithm {
                 break;
             default:
                 break;
-        }
-    }
-
-    generateBars(size: string | number | string[] | undefined) {
-        if (typeof size === "number") {
-            this.sort.resize(size);
         }
     }
 

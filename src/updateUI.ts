@@ -39,24 +39,29 @@ export const updateCommonControls: () => void = () => {
 
 //algorithm controls
 export const updateAlgoControls: () => void = () => {
-    $('#sorting').on('click', (event: ClickEvent) => {
+    $('#sorting-button').on('click', (event: ClickEvent) => {
         algo.setAlgo(AlgoType.SORTING);
         $('.header .algo-list button').removeClass('button-active');
         $('.header .algo-list button').addClass('button-inactive');
-        $('#sorting').removeClass('button-inactive');
-        $('#sorting').addClass('button-active');
+        $('#sorting-button').removeClass('button-inactive');
+        $('#sorting-button').addClass('button-active');
         $('.graph-controls').css('display', 'none');
+
         $('.sorting-controls').css('display', 'block');
+        $('#array').css('display', 'flex');
+        $('#graph').css('display', 'none');
     });
-    $('#graph').on('click', (event: ClickEvent) => {
+    $('#graph-button').on('click', (event: ClickEvent) => {
         algo.setAlgo(AlgoType.GRAPH);
         $('.header .algo-list button').removeClass('button-active');
         $('.header .algo-list button').addClass('button-inactive');
-        $('#graph').removeClass('button-inactive');
-        $('#graph').addClass('button-active');
+        $('#graph-button').removeClass('button-inactive');
+        $('#graph-button').addClass('button-active');
 
         $('.sorting-controls').css('display', 'none');
-        $('.graph-controls').css('display', 'block');
+        $('.graph-controls').css('display', 'flex');
+        $('#array').css('display', 'none');
+        $('#graph').css('display', 'flex');
     });
 }
 
@@ -106,16 +111,30 @@ export const updateSortControls: () => void = () => {
         $('#bogo-sort').removeClass('button-inactive');
         $('#bogo-sort').addClass('button-active');
     });
-    $('#generate-bars').on('click', (event: ClickEvent) => {
-        algo.generateBars($('#bar-count').val());
+    $('#stalin-sort').on('click', (event: ClickEvent) => {
+        algo.setSubAlgo(SortAlgo.STALIN);
+        $('.header .algo-controls button').removeClass('button-active');
+        $('.header .algo-controls button').addClass('button-inactive');
+        $('#stalin-sort').removeClass('button-inactive');
+        $('#stalin-sort').addClass('button-active');
     });
+    $('#oddeven-sort').on('click', (event: ClickEvent) => {
+        algo.setSubAlgo(SortAlgo.ODDEVEN);
+        $('.header .algo-controls button').removeClass('button-active');
+        $('.header .algo-controls button').addClass('button-inactive');
+        $('#oddeven-sort').removeClass('button-inactive');
+        $('#oddeven-sort').addClass('button-active');
+    });
+    /*$('#generate-bars').on('click', (event: ClickEvent) => {
+        algo.generateBars($('#bar-count').val());
+    });*/
     $('#generate-bars').on('click', (event: ClickEvent) => {
         let barCount = $('#bar-count').val();
         // @ts-ignore
         let num = parseInt(barCount.toString());
         algo.sort.resize(num);
-        console.log("Yess Encountered")
-    })
+        console.log("Yes Encountered")
+    });
 }
 
 //graph controls
@@ -129,6 +148,14 @@ export const updateGraphControls: () => void = () => {
     });
     $('#generate-graph').on('click', (event: ClickEvent) => {
         //TODO Generate Graph
+        //@ts-ignore
+        let rows = parseInt($('#graph-row').val().toString());
+        //@ts-ignore
+        let cols = parseInt($('#graph-column').val().toString());
+
+        if (typeof rows == "number" && typeof cols == "number") {
+            renderGraph(rows, cols);
+        }
     });
 }
 
@@ -138,10 +165,25 @@ export const renderBars: (array: Array<number>) => void = (array: Array<number>)
     for (let i = 0; i < size; i++) {
         htmlString += `<div id="bar-${i}" class="bar"></div>`;
     }
-    $('#canvas .array').html(htmlString);
+    $('#canvas #array').html(htmlString);
     array.forEach((x, i) => {
         $(`#bar-${i}`).css('height', `${x}px`);
     })
+}
+
+export const renderGraph: (rows: number, cols: number) => void = (rows: number, cols: number) => {
+    let htmlString: string = ``;
+    htmlString += '<table>';
+    for (let i = 0; i < rows; i++) {
+        htmlString += '<tr>';
+        for (let j = 0; j < cols; j++) {
+            htmlString += `<td class ="node" id="node-${i}-${j}"></td>`;
+        }
+        htmlString += '</tr>'
+    }
+    htmlString += '</table>'
+    $('#graph').html(htmlString);
+
 }
 
 export const getBarElements: (size: number) => Array<JQuery> = (size: number) => {
