@@ -78,6 +78,7 @@ export class Algorithm {
                         await this.sort.insertionSort();
                         break;
                     case SortAlgo.SELECTION:
+                        await this.sort.selectionSort();
                         break;
                     case SortAlgo.STALIN:
                         await this.sort.stalinSort();
