@@ -1,6 +1,6 @@
 import $ from 'jquery';
 import {sleep} from "../util/util";
-import {getBarElements, renderBars} from "../updateUI";
+import {getBarElements, renderBars} from "../ui/updateUI";
 
 export class Sorting {
     size: number;
@@ -201,11 +201,11 @@ export class Sorting {
 
         this.elements[end].css('height', `${this.array[end]}px`);
         this.elements[pivotIndex].css('height', `${this.array[pivotIndex]}px`);
-        this.elements[end].css('background', '#0b4be6');
-        this.elements[pivotIndex].css('background', '#0b4be6');
-        this.elements[end].css('background', '#00ffff');
-        this.elements[pivotIndex].css('background', '#00ffff');
-        this.elements[end].css('background', '#00ffff');
+        //this.elements[end].css('background', '#0b4be6');
+        //this.elements[pivotIndex].css('background', '#0b4be6');
+        this.elements[start].css('background', '#00ff00');
+        this.elements[pivotIndex].css('background', '#00ff00');
+        this.elements[end].css('background', '#00ff00');
         return pivotIndex;
     }
 
@@ -225,10 +225,10 @@ export class Sorting {
                 this.elements[j].css('height', `${this.array[j]}px`);
                 this.elements[j - 1].css('height', `${this.array[j - 1]}px`);
 
-                this.elements[j - 1].css('background', '#00ff00');
+                this.elements[j - 1].css('background', '#0000ff');
                 await sleep(this.delay);
 
-                this.elements[j - 1].css('background', '#00ffff');
+                this.elements[j - 1].css('background', '#00ff00');
                 j--;
             }
 
@@ -252,7 +252,7 @@ export class Sorting {
                 this.elements[i].css('background', 'rgba(255,0,0,0.95)');
                 this.elements[j].css('background', '#ff0000');
                 await sleep(this.delay);
-                this.elements[i].css('background', '#00ffff');
+                this.elements[i].css('background', '#00ff00');
                 this.elements[j].css('background', '#00ffff');
                 if (this.array[j] < this.array[min]) {
                     this.elements[min].css('background', '#00ffff');

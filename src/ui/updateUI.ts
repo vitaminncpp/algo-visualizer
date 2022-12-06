@@ -1,6 +1,6 @@
-import {algo} from "./index";
+import {algo} from "../index";
 import $ from 'jquery';
-import {AlgoType, GraphAlgo, SortAlgo} from "./algo";
+import {AlgoType, GraphAlgo, SortAlgo} from "../algo";
 import ClickEvent = JQuery.ClickEvent;
 
 export const updateUI: () => void = () => {
