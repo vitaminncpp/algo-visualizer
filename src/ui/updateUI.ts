@@ -133,7 +133,6 @@ export const updateSortControls: () => void = () => {
         // @ts-ignore
         let num = parseInt(barCount.toString());
         algo.sort.resize(num);
-        console.log("Yes Encountered")
     });
 }
 

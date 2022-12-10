@@ -40,8 +40,8 @@ export class Algorithm {
     constructor() {
         this.state = {
             pause: false,
-            algo: AlgoType.SORTING,
-            subAlgo: SortAlgo.BUBBLE,
+            algo: AlgoType.NONE,
+            subAlgo: SortAlgo.NONE,
         };
         this.sort = new Sorting(50);
 

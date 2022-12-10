@@ -1,0 +1,107 @@
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+.toast {
+    background: #fff;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 12px;
+    padding: 20px 35px 20px 25px;
+    position: absolute;
+    top: 25px;
+    right: 30px;
+    border-left: 6px solid #4070f4;
+    overflow: hidden;
+    /*transform: translateX(calc(30px + 100%));*/
+    transition: all 0.5s cubic-bezier(.68, -.55, .265, 1.35);
+}
+
+.toast.active {
+    transform: translateX(0%);
+}
+
+.progress.active:before {
+    -webkit-animation: progress 5s linear forwards;
+    -o-animation: progress 5s linear forwards;
+    animation: progress 5s linear forwards;
+}
+
+@keyframes progress {
+    100% {
+        right: 100%;
+
+    }
+}
+
+.toast-content .check {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 35px;
+    width: 35px;
+    background: #4070f4;
+    color: #fff;
+    font-size: 20px;
+    border-radius: 50%;
+}
+
+.toast .toast-content {
+    display: flex;
+    align-items: center;
+}
+
+.toast-content .message {
+    display: flex;
+    margin: 0 20px;
+    flex-direction: column;
+}
+
+.message .text {
+    font-size: 20px;
+    font-weight: 400;
+    color: #666666;
+}
+
+.message .text.text-1 {
+    font-weight: 600;
+    color: #333;
+
+}
+
+.toast .close {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    padding: 5px;
+    cursor: pointer;
+    opacity: .7;
+}
+
+.toast .close:hover {
+    opacity: 1;
+}
+
+.toast .progress {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 3px;
+    width: 100%;
+    background: #333;
+
+}
+
+.toast .progress:before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    right: 0px;
+    height: 100%;
+    width: 100%;
+    background: #4070f4;
+}
