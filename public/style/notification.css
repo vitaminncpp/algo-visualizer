@@ -19,9 +19,9 @@
     overflow: hidden;
     width: auto;
 
-    -webkit-animation: popup .1s ease-out forwards;
-    -o-animation: popup .1s ease-out forwards;
-    animation: popup .1s ease-out forwards;
+    -webkit-animation: popup .2s ease-out forwards;
+    -o-animation: popup .2s ease-out forwards;
+    animation: popup .2s ease-out forwards;
 }
 
 .progress.active:before {
@@ -40,10 +40,9 @@
     }
 }
 
-.popup-animation {
-    -webkit-animation: popup 5s linear forwards;
-    -o-animation: popup 5s linear forwards;
-    animation: popup 5s linear forwards;
+.fad {
+    opacity: 0;
+    transition: 2s ease-out;
 }
 
 @keyframes popup {
@@ -52,18 +51,6 @@
     }
     100% {
         top: 40px
-    }
-}
-
-@keyframes fad-away {
-    0% {
-        opacity: 1;
-    }
-    80% {
-        opacity: 1;
-    }
-    100% {
-        opacity: 0;
     }
 }
 

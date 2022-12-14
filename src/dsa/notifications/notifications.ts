@@ -34,13 +34,14 @@ export const notify: (type: MessageType, message: string) => void = async (type:
             break;
     }
     let htmlString: string = getNotification({id: count, type: type, message: message});
-    $('#notifications').html(htmlString);
+    $('#notifications').append(htmlString);
     $(`#t-${stats.count} .progress`).before().css('background', '#fff');
     $(`#t-${stats.count} .progress`).css('background', color);
     $(`#t-${stats.count} .toast-content .check`).css('background', color);
     $(`#t-${stats.count}`).css('border-left', `6px solid ${color}`);
-    $(`#t-${stats.count}`).addClass('active');
-    await sleep(5000);
+    await sleep(3000);
+    $(`#t-${stats.count}`).addClass('fad');
+    await sleep(2000);
     $(`#t-${stats.count}`).remove();
     console.log("this is here");
 }
