@@ -55,3 +55,13 @@
     background: var(--button-background);
     color: var(--button-background-hover);
 }
+
+#test {
+    background: #ffffff;
+    color: #000000;
+}
+
+#test:hover {
+    background: #000000;
+    color: #ffffff;
+}

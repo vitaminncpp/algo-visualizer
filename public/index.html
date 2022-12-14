@@ -17,23 +17,15 @@
 </head>
 <body>
 <div id="app">
-    <div class="toast active">
-        <div class="toast-content">
-            <i class="i fas fa solid fa-check check"></i>
-            <div class="message">
-                <span class="text text-1">Success</span>
-                <span class="text text-2">Your changes have been saved</span>
-            </div>
+    <div id="notifications">
 
-        </div>
-        <i class="fa-solid fa-xmark close">
-
-        </i>
-        <div class="progress active"></div>
     </div>
     <script type="module" src="/dist/index.js"></script>
     <div class="header">
         <div class="controls">
+            <button id="test">
+                Click me
+            </button>
             <button id="start">Start</button>
             <button id="stop">Stop</button>
             <!--            <button id="pause">Pause</button>-->
@@ -42,7 +34,6 @@
             <button id="reset">Reset</button>
         </div>
         <div class="algo-controls">
-
             <div class="sorting-controls">
                 <input type="number" id="bar-count" placeholder="Number of Bars"/>
                 <button id="generate-bars">Generate</button>

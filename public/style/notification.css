@@ -14,15 +14,14 @@
     padding: 20px 35px 20px 25px;
     position: absolute;
     top: 25px;
-    right: 30px;
-    border-left: 6px solid #4070f4;
+    left: calc(50vw - 10%);
+    border-left: 6px solid var(--color-info);
     overflow: hidden;
-    /*transform: translateX(calc(30px + 100%));*/
-    transition: all 0.5s cubic-bezier(.68, -.55, .265, 1.35);
-}
+    width: auto;
 
-.toast.active {
-    transform: translateX(0%);
+    -webkit-animation: popup .1s ease-out forwards;
+    -o-animation: popup .1s ease-out forwards;
+    animation: popup .1s ease-out forwards;
 }
 
 .progress.active:before {
@@ -32,9 +31,39 @@
 }
 
 @keyframes progress {
-    100% {
-        right: 100%;
 
+    0% {
+        left: 100%;
+    }
+    100% {
+        left: 0%;
+    }
+}
+
+.popup-animation {
+    -webkit-animation: popup 5s linear forwards;
+    -o-animation: popup 5s linear forwards;
+    animation: popup 5s linear forwards;
+}
+
+@keyframes popup {
+    0% {
+        top: -50px;
+    }
+    100% {
+        top: 40px
+    }
+}
+
+@keyframes fad-away {
+    0% {
+        opacity: 1;
+    }
+    80% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
     }
 }
 
@@ -44,7 +73,7 @@
     justify-content: center;
     height: 35px;
     width: 35px;
-    background: #4070f4;
+    background: var(--color-info);
     color: #fff;
     font-size: 20px;
     border-radius: 50%;
@@ -90,10 +119,9 @@
     position: absolute;
     bottom: 0;
     left: 0;
-    height: 3px;
+    height: 4px;
     width: 100%;
-    background: #333;
-
+    background: #ffffff;
 }
 
 .toast .progress:before {
@@ -103,5 +131,5 @@
     right: 0px;
     height: 100%;
     width: 100%;
-    background: #4070f4;
+    background: #fff;
 }

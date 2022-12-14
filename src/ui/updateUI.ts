@@ -1,6 +1,7 @@
 import {algo} from "../index";
 import $ from 'jquery';
 import {AlgoType, GraphAlgo, SortAlgo} from "../algo";
+import {MessageType, notify} from "../dsa/notifications/notifications";
 import ClickEvent = JQuery.ClickEvent;
 
 export const updateUI: () => void = () => {
@@ -9,6 +10,7 @@ export const updateUI: () => void = () => {
     updateSortControls();
     updateGraphControls();
     applyCSS();
+    misc();
 }
 
 
@@ -152,9 +154,7 @@ export const updateGraphControls: () => void = () => {
         //@ts-ignore
         let cols = parseInt($('#graph-column').val().toString());
 
-        if (typeof rows == "number" && typeof cols == "number") {
-            renderGraph(cols, rows);
-        }
+        renderGraph(cols, rows);
     });
 }
 
@@ -198,4 +198,10 @@ export const applyCSS: () => void = () => {
     $('.header button').addClass('button-inactive');
     $('.graph-controls').css('display', 'none');
     $('.sorting-controls').css('display', 'none');
+}
+
+export const misc: () => void = () => {
+    $('#test').on('click', (event: ClickEvent) => {
+        notify(MessageType.FAILURE, "This is Test Message");
+    })
 }
