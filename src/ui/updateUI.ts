@@ -1,7 +1,7 @@
 import {algo} from "../index";
 import $ from 'jquery';
-import {AlgoType, GraphAlgo, SortAlgo} from "../algo";
-import {MessageType, notify} from "../dsa/notifications/notifications";
+import {AlgoType, GraphAlgo, SortAlgo} from "../dsa/algo";
+import {MessageType, notify} from "../notifications/notifications";
 import ClickEvent = JQuery.ClickEvent;
 
 export const updateUI: () => void = () => {

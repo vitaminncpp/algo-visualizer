@@ -1,5 +1,5 @@
 import {init} from "./init";
-import {Algorithm} from "./algo";
+import {Algorithm} from "./dsa/algo";
 
 init();
 

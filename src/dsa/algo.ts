@@ -1,4 +1,4 @@
-import {Sorting} from "./dsa/sorting";
+import {Sorting} from "./sorting";
 import {getJSON} from "jquery";
 
 

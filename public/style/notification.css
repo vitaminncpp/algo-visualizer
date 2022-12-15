@@ -8,16 +8,17 @@
 }
 
 .toast {
+    height: 100px;
+    width: 500px;
     background: #fff;
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
     border-radius: 12px;
     padding: 20px 35px 20px 25px;
     position: absolute;
     top: 25px;
-    left: calc(50vw - 10%);
+    left: calc(50vw - 15%);
     border-left: 6px solid var(--color-info);
     overflow: hidden;
-    width: auto;
 
     -webkit-animation: popup .2s ease-out forwards;
     -o-animation: popup .2s ease-out forwards;

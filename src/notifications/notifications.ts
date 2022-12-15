@@ -1,5 +1,5 @@
 import $ from "jquery";
-import {sleep} from "../../util/util";
+import {sleep} from "../util/util";
 
 export enum MessageType {
     SUCCESS,
@@ -8,9 +8,9 @@ export enum MessageType {
 }
 
 export const MessageMap = {
-    SUCCESS: '#6aff6a',
-    FAILURE: '#e65524',
-    INFO: '#7b5ddc',
+    SUCCESS: '#00ff00',
+    FAILURE: '#ff0000',
+    INFO: '#0000ff',
 }
 export const stats: { count: number } = {
     count: 0,
@@ -43,7 +43,6 @@ export const notify: (type: MessageType, message: string) => void = async (type:
     $(`#t-${stats.count}`).addClass('fad');
     await sleep(2000);
     $(`#t-${stats.count}`).remove();
-    console.log("this is here");
 }
 
 
